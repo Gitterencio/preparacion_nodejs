@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Peliculas</title>
+
+    <link rel="stylesheet" href="">
+
+</head>
+
+<body>
+    <div id="main-container">
+
+        <h1> Registro</h1>
+
+        <form action="/new" method="post">
+
+            <p>
+                <label for="">Nombre</label><br/>
+                <input type="text" name="nombre" id="nombre">
+            </p>
+
+            <p>
+                <label for="">Calificacion</label><br/>
+                <input type="range" min="0" max="10" name="rating" id="rating">
+            </p>
+
+            <p>
+                <input type="button" id="bSubmit" value="Añadir nueva pelicula">
+            </p>
+
+        </form>
+
+        <div id="peliculas-container" >
+
+
+        </div>
+    </div>
+    <script>
+        const bSumit = document.querySelector('#bSubmit');
+        loadPelis();
+
+        function loadPelis(){
+
+fetch('/get-peliculas',{method:'GET'})
+.then(res => res.json())
+.then(data =>{
+    const peliculas = document.querySelector('#peliculas-container');
+
+    let html= '';
+    data.peliculas.forEach(pelicula =>{
+        html+=`<div>${pelicula.nombre} <img src="image/star.png" widtn="2" height="16" />${pelicula.rating}</div>`;
+    });
+    peliculas.innerHTML = html;
+});
+
+}
+
+//deve ser buttons type
+        bSumit.addEventListener('click',(e)=>{
+            //validar
+            const nombre =document.querySelector('#nombre').value;
+            const rating =document.querySelector('#rating').value;
+
+            if(nombre ==='' || rating === '') return false;
+            //solicitud post /new
+
+            fetch('/new',{
+            method:'post',
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify({nombre: nombre,rating:rating})
+        })
+        .then(res => {return res.text()})
+        .then(data =>{
+            alert(data);
+            loadPelis();
+        });
+
+            //mostrar error o exito
+
+            //actualizar
+        });
+
+       
+    </script>
+</body>
+
+</html>

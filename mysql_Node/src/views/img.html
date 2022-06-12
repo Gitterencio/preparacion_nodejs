@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= index %></title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>imagenes</h1>
+        <br>
+        
+    <!--   PHOTO-->
+ 
+    <form action="/img/save" enctype="multipart/form-data" method="POST"> 
+        <input type="file" name="image" />
+        <input type="submit" value="imagen"/>
+      </form>
+         <br>
+    </div>
+
+
+
+    <br>
+</div>
+
+
+
+<h1>Imagenes subidas</h1>
+
+
+<% items.forEach(image => { %>
+
+    <div>
+        <img src="data:<%= image.contentType %>;base64,
+             <%= image.blo_image.toString('base64') %>">
+
+    </div>
+
+
+    <% }); %>
+    
+</body>
+</html>

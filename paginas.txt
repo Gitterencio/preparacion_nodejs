@@ -1,0 +1,52 @@
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+
+ <!-- Font Awnson,
+iconos 
+https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=brands -->
+  
+  <!-- GOOGLE FONTS
+ Tipo de letras-->
+
+<!-- ANIMATE CSS -->
+animaciones class
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+   /* CSS UI GRADIENTS*/
+backgrouds con efectos
+
+
+clever cloud Mongo
+nombre : b8siqpaf1c9sxah
+host: b8siqpaf1c9sxah-mongodb.services.clever-cloud.com
+user: uvwsk4nzavtd0joejaog
+pass :HtzRWfbZnEewHvYMECZz
+puert: 27017
+
+clever cloud Mysql
+nombre : bavvsia83xxkjbvtnugt
+host: bavvsia83xxkjbvtnugt-mysql.services.clever-cloud.com
+user: umobi57mt7ynmn2t
+pass :tYpFy9XU62D8Mam2PC9p
+puert: 3306
+
+heroku
+
+npm init -y 
+
+ "dev": "nodemon src",
+    "start": "node src/index"
+
+npm i express ejs mongoose bcrypt multer
+
+
+git checkout main
+git branch test
+
+git pull , actualizar local
+
+git add .
+git commit -m ""
+git push -u origin main"
